@@ -1,16 +1,18 @@
 = Building on Ubuntu Linux =
 
 The documents in this project are built using the R computer language. 
-These instructions describe how to do this on Ubuntu Linux.
+These instructions describe how to do this on Ubuntu Linux 14.04 or 15.04.
 
-First, make sure you have some build tools. Copy/paste this to a terminal:
+First, make sure you have some build tools. Copy/paste each line to a terminal:
 
     sudo apt-get update
     sudo apt-get install build-essential libxml2-dev libssl-dev
+    sudo apt-get install libcurl4-openssl-dev libssh2-1-dev
+    sudo apt-get install libgit2-dev libicu-dev
 
-On Ubuntu >15.04 you can now get R and Pandoc like so:
+On Ubuntu 15.04 you can now get R and Pandoc like so:
 
-    apt-get install r-base r-base-dev pandoc
+    sudo apt-get install r-base r-base-dev pandoc pandoc-citeproc
 
 For older Ubuntu, read on. After you install R and Pandoc, skip down to
 the section "Getting dependencies inside of R".
@@ -81,10 +83,10 @@ to choose a mirror site for downloading. Choose one close to you. On success
 it should say "DONE".
 
     install.packages("devtools")
-    install.packages("R6", "yaml", "digest", "crayon", "optparse")
-    install.packages("dplyr", "magrittr", "lubridate", "tidyr", "ggplot2")
-    install.packages("pryr", "rmarkdown", "readr", "gridExtra")
-    install.packages("reshape2", "picante", "stargazer", "pander", "xtable")
+    install.packages(c("R6", "yaml", "digest", "crayon", "optparse"))
+    install.packages(c("dplyr", "magrittr", "lubridate", "tidyr", "ggplot2"))
+    install.packages(c("pryr", "rmarkdown", "readr", "gridExtra"))
+    install.packages(c("reshape2", "picante", "stargazer", "pander", "xtable"))
     devtools::install_github("richfitz/storr")
     devtools::install_github("richfitz/remake")
 
