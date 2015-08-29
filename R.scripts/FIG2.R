@@ -108,6 +108,11 @@ make_fig_2 <- function(pd, .mytheme, .one_point){
   # png("../Figures/FIG_2.png", height = 500, width = 500)
   grid.arrange(pred_present_plot, pred_number_plot, pred_identity_plot, pred_combo_plot,
                ncol=2,
-               left = textGrob("Mean prey survival", rot = 90, vjust = 1))
+               left = "Mean prey survival")
+
+  # textGrob is not available in gridExtras as of mid-2015. 
+  # see http://r.789695.n4.nabble.com/Problem-with-gridExtra-td4711572.html
+  #             left = textGrob("Mean prey survival", rot = 90, vjust = 1))
+
   # dev.off()
 }
