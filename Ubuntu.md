@@ -51,9 +51,9 @@ Next, get R from the rstudio.com repository. Edit your
 
     sudo gedit /etc/apt/sources.list
 
-Add the following line to the end of the sources.list file:
+Add the following line to the end of the sources.list file (no leading spaces):
 
-    deb http://cran.rstudio.com/bin/linux/ubuntu trusty
+    deb http://cran.rstudio.com/bin/linux/ubuntu trusty/
 
 Save and exit. Now update your Gnu Privacy Guard (GPG) keys
 
@@ -68,8 +68,8 @@ Now install R from rstudio.com:
 
     sudo apt-get install r-base r-base-dev
 
-The "get" stages of apt-get should show the computer connecting to rstudio.com
-and downloading the packages.
+The "get" stages of apt-get should show that r-base and r-base-dev are 
+downloaded from rstudio.com
 
 == Getting dependenices inside of R ==
 
