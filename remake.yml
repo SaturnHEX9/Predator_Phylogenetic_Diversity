@@ -180,6 +180,7 @@ targets:
       - Figures/FIG_1.png
       - Figures/FIG_2.png
       - Figures/FIG_3.png
+      - MS/formatting/pdef.bib
     command: render("MS/predatordiversity.md", output_format = I("word_document"))
     
   MS/predatordiversity.pdf:
@@ -187,5 +188,6 @@ targets:
       - Figures/FIG_1.png
       - Figures/FIG_2.png
       - Figures/FIG_3.png
+      - MS/formatting/pdef.bib
     command: render("MS/predatordiversity.md", output_format = I("pdf_document"))
 

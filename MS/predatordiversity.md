@@ -12,8 +12,11 @@ output:
   word_document:
     reference_docx: formatting/reference.docx
 geometry: margin=1in
-bibliography: /home/andrew/Documents/reference/Mendeley_reference_lists/@MS_pdpaper.bib
+bibliography: formatting/pdef.bib
+csl: formatting/the-american-naturalist.csl
 ---
+
+
 
 
 
@@ -41,7 +44,7 @@ community ecology and the importance of predators to natural systems, the
 phylogenetic diversity of local predator assemblages has rarely been measured
 [@Bersier2008;@Naisbit2011]. Many studies of phylogeny and predator
 traits focus on whole clades, rather than local assemblages (e.g. *Anolis*
-lizards [@Knouft2006], warblers [@Bohning- Gaese2003], tree boas
+lizards [@Knouft2006], warblers [@Bohning-Gaese2003], tree boas
 [@Henderson2013] and wasps [@Udriene2005]) making it difficult to connect these
 results to predator effects at the scale of a local community. These 
 clade specific studies often find weak evidence for phylogenetic signal in
@@ -63,7 +66,7 @@ We examined the consequences of phylogenetic diversity using a natural mesocosm:
 the community of macroinvertebrates living within bromeliads. Bromeliads
 (Bromeliaceae) are flowering plants native to the Neotropics. Many bromeliad
 species contain water and trapped, terrestrial detritus; the decomposition of
-this detritus supplies nutrients for the bromeliad [@Reich2003]. The small size
+this detritus supplies nutrients for the bromeliad [@Reich2003a]. The small size
 of these habitats permits direct manipulations of entire food webs,
 manipulations which would be difficult in most natural systems.  Within this
 aquatic food web, damselfly larvae (e.g. *Leptagrion* spp.,
@@ -210,7 +213,7 @@ interactions, and standardizing to community metabolic capacity is preferred
 rate [@Brown2004; @Wilby2005] over all individuals of a species allows estimates
 of "metabolic capacity", or the potential energy requirements of a species
 [@Srivastava2009a]. Metabolic capacity is equal to individual body
-mass raised to the power of 0.69 (an invertebrate-specific exponent determined by Peters 19xx for invertebrates and confirmed by Chown et al, [-@Chown2007]); this reflects the nonlinearity of feeding rate
+mass raised to the power of 0.69 (an invertebrate-specific exponent determined by Peters [-@Peters1986] for invertebrates and confirmed by Chown et al, [-@Chown2007]); this reflects the nonlinearity of feeding rate
 on body size across many invertebrate taxa. 
 
 At the end of the experiment, to quantify the effect of predators on ecosystem function, we measured five
@@ -252,7 +255,7 @@ In our third and final analysis we quantified the nondditive effect of predator 
 response in bromeliads with both predator species (n=5) and the mean response in bromeliads with either one of these two predator species 
 (n=5 for each predator species).  We generated bootstrap confidence intervals for
 these non-additive effects; confidence intervals which do not overlap zero
-indicate a significant non-additive effect of a predator combination. We used R version 3.2.0 [@rcore] for most calculations, and vegan [@vegan] for the distance metrics.
+indicate a significant non-additive effect of a predator combination. We used R version 3.2.0 [@rcore] for most calculations, picante [@picante] for calculation phylogenetic distances matrices, and vegan [@vegan] for distance metrics.
 
 ## Results
 
@@ -370,8 +373,8 @@ more phylogenetically diverse combinations (*L. elongatum* with the Tabanid or l
 
 When _L. elongatum_ occured with more distantly related predators, prey survivorship was greater than expected. This
 non-additive effect may have been due to a reduction in predation by odonates in the presence of non-odonate predators.
-Odonates have been shown to be sensitive to chemical cues (**Barry and Roberts 2014**) or tactile cues (**Atwood et al**) of potential predators, which
-causes a decrease in feeding rate. For example, a different species of bromeliad damselfly -- _Mecistogaster modesta_ Selys -- reduces predation when it is housed with Dytiscid adults (**Atwood**). If there is a phylogenetic signal
+Odonates have been shown to be sensitive to chemical cues (**Barry and Roberts 2014**) or tactile cues [@Atwood2014] of potential predators, which
+causes a decrease in feeding rate. For example, a different species of bromeliad damselfly -- _Mecistogaster modesta_ Selys -- reduces predation when it is housed with Dytiscid adults [@Atwood2014]. If there is a phylogenetic signal
 to the chemical cues released by predators, individuals of one species might be unable to distinguish close relatives
 (congenerics in our case) from conspecifics. One limitation of our approach is that all phylogenetic
 diversity treatments contained one species in common, *Leptagrion elongatum*.
