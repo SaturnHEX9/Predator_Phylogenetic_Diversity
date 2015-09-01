@@ -1,4 +1,4 @@
-= Building on Ubuntu Linux =
+# Building on Ubuntu Linux
 
 The output document in this project, predatordiversity.pdf, is built 
 using the R computer language and numerous dependencies. These 
@@ -23,7 +23,7 @@ instructions below.
 After you install R and Pandoc, skip down to the section "Getting 
 dependencies inside of R".
 
-=== Ubuntu 14.04 ===
+### Ubuntu 14.04 
 
 On Ubuntu 14.04 both Pandoc and R are too old to work (R devtools bitrot). 
 You need to purge the existing R and Pandoc packages and install them 
@@ -31,7 +31,7 @@ yourself. First, purge old packages.
 
     sudo apt-get purge r-base r-base-dev pandoc
 
-==== Ubuntu 14.04 Pandoc ====
+#### Ubuntu 14.04 Pandoc 
 
     sudo apt-get install haskell-platform
     cabal update
@@ -52,7 +52,7 @@ Save and quit. Note that if you ever upgrade ubuntu 14 to ubuntu 15, you
 will probably want to remove this line from .bashrc and remove the 
 $HOME/.cabal directory.
 
-==== Ubuntu 14 R ====
+#### Ubuntu 14 R 
 
 Next, get R from the rstudio.com repository. Edit your 
 /etc/apt/sources.list file as root
@@ -79,7 +79,7 @@ Now install R from rstudio.com:
 This should install R from rstudio.com and dependency packages from
 the standard locations. 
 
-== Getting dependenices inside of R ==
+## Getting dependenices inside of R 
 
 Several R tools are required. They can be installed from within R 
 itself. Start R as root
@@ -101,7 +101,7 @@ minutes as it downloads and compiles files. On success it should say "DONE".
 
 You should now be ready to build the project.
 
-== Building the project ==
+## Building the project 
 
 First, fetch the source code (if you don't already have it)
 
@@ -121,7 +121,7 @@ After a few minutes the machine should create a file named
 predatordiversity.pdf under the MS directory. The pdf file should be
 openable in any PDF reader or in the Ubuntu file browser.
 
-=== See Also ===
+## See Also
 
 Tool homes:
 
