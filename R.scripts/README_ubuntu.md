@@ -125,13 +125,14 @@ openable in any PDF reader or in the Ubuntu file browser.
 
 Tool homes:
 
-*https://github.com/richfitz/storr
-*https://github.com/richfitz/remake
-*http://pandoc.org/installing.html
+* https://github.com/richfitz/storr
+* https://github.com/richfitz/remake
+* http://pandoc.org/installing.html
+* https://cran.rstudio.com/bin/linux/ubuntu/README.html
 
 Troubleshooting:
 
-*http://stackoverflow.com/questions/30794035/install-packagesdevtools-on-r-3-0-2-fails-in-ubuntu-14-04
-*http://ubuntuforums.org/archive/index.php/t-2154184.html
-*http://r.789695.n4.nabble.com/Problem-with-gridExtra-td4711572.html
+* http://stackoverflow.com/questions/30794035/install-packagesdevtools-on-r-3-0-2-fails-in-ubuntu-14-04
+* http://ubuntuforums.org/archive/index.php/t-2154184.html
+* http://r.789695.n4.nabble.com/Problem-with-gridExtra-td4711572.html
 
