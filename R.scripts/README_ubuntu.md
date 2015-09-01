@@ -2,7 +2,8 @@
 
 The output document in this project, predatordiversity.pdf, is built 
 using the R computer language and numerous dependencies. These 
-instructions describe how to build on Ubuntu Linux 14.04 or 15.04.
+instructions describe how to setup and build the document on 
+Ubuntu Linux version 14.04 or 15.04.
 
 First, make sure you have some build tools. Copy/paste each line to a terminal:
 
@@ -12,7 +13,7 @@ First, make sure you have some build tools. Copy/paste each line to a terminal:
     sudo apt-get install libgit2-dev libicu-dev
     sudo apt-get install texlive-xetex texlive-humanities
 
-On Ubuntu 15.04 you can now get R and Pandoc like so:
+On Ubuntu 15.04 you can now install R and Pandoc like so:
 
     sudo apt-get install r-base r-base-dev pandoc pandoc-citeproc
 
@@ -30,25 +31,26 @@ yourself. First, purge old packages.
 
     sudo apt-get purge r-base r-base-dev pandoc
 
-==== Ubuntu 14 Pandoc ====
+==== Ubuntu 14.04 Pandoc ====
 
     sudo apt-get install haskell-platform
     cabal update
     cabal install pandoc
     cabal install pandoc pandoc-citeproc
 
-This will take a while as the system downloads and compiles the files. 
+This will take a long time as the system downloads and compiles the files. 
 The pandoc program will be under $HOME/.cabal/bin so add it to your PATH
 
     export PATH=$HOME/.cabal/bin:$PATH
 
-Add the above command to the end of your $HOME/.bashrc to make it permanent
-every time you log in from here forward. 
+Copy/paste the above command to the end of your $HOME/.bashrc to make it 
+permanent every time you login from here forward.
 
     gedit $HOME/.bashrc
 
-Save and quit. Note that if you ever upgrade ubuntu 14 to ubuntu 15, you
-will need to remove .cabal and this line from .bashrc.
+Save and quit. Note that if you ever upgrade ubuntu 14 to ubuntu 15, you 
+will probably want to remove this line from .bashrc and remove the 
+$HOME/.cabal directory.
 
 ==== Ubuntu 14 R ====
 
@@ -66,7 +68,7 @@ Save and exit. Now update your Gnu Privacy Guard (GPG) keys
     gpg --keyserver pgpkeys.mit.edu --recv-key 51716619E084DAB9
     gpg -a --export 51716619E084DAB9 | sudo apt-key add -
 
-Update your apt package system with the new rstudio.com entries
+Update your apt package system with the new rstudio.com entries like so:
 
     sudo apt-get update
 
@@ -74,8 +76,8 @@ Now install R from rstudio.com:
 
     sudo apt-get install r-base r-base-dev
 
-The "get" stages of apt-get should show that r-base and r-base-dev are 
-downloaded from rstudio.com
+This should install R from rstudio.com and dependency packages from
+the standard locations. 
 
 == Getting dependenices inside of R ==
 
@@ -86,7 +88,8 @@ itself. Start R as root
 
 Now copy/paste each of these R commands to the R terminal. This will 
 install dependencies. It may ask you to choose a mirror site for 
-downloading. Choose one close to you. On success it should say "DONE".
+downloading. Choose one close to you. Each command may take several
+minutes as it downloads and compiles files. On success it should say "DONE".
 
     install.packages("devtools")
     install.packages(c("R6", "yaml", "digest", "crayon", "optparse"))
@@ -100,7 +103,7 @@ You should now be ready to build the project.
 
 == Building the project ==
 
-First, fetch the source code
+First, fetch the source code (if you don't already have it)
 
     git clone https://github.com/aammd/Predator_Phylogenetic_Diversity
 
@@ -114,9 +117,9 @@ Now start R and build the project using 'remake' (you do not need to be root)
 
     > remake::make()
 
-After a few minutes it should create a .pdf file under the MS directory. 
-This should be openable with any pdf viewer or by clicking in the Ubuntu
-file browser.
+After a few minutes the machine should create a file named 
+predatordiversity.pdf under the MS directory. The pdf file should be
+openable in any PDF reader or in the Ubuntu file browser.
 
 === See Also ===
 
