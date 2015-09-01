@@ -86,10 +86,10 @@ itself. Start R as root
 
     sudo R
 
-Now copy/paste each of these R commands to the R terminal. This will 
-install dependencies. It may ask you to choose a mirror site for 
-downloading. Choose one close to you. Each command may take several
-minutes as it downloads and compiles files. On success it should say "DONE".
+Now copy/paste each of these R commands to the R terminal. It may ask you to 
+choose a mirror site for downloading. Choose one close to you. Each command
+may take several minutes as it downloads and compiles files. On success it 
+should say "DONE".
 
     install.packages("devtools")
     install.packages(c("R6", "yaml", "digest", "crayon", "optparse"))
