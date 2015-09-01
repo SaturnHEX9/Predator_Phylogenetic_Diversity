@@ -1,7 +1,8 @@
 = Building on Ubuntu Linux =
 
-The documents in this project are built using the R computer language. 
-These instructions describe how to do this on Ubuntu Linux 14.04 or 15.04.
+The output document in this project, predatordiversity.pdf, is built 
+using the R computer language and numerous dependencies. These 
+instructions describe how to build on Ubuntu Linux 14.04 or 15.04.
 
 First, make sure you have some build tools. Copy/paste each line to a terminal:
 
@@ -9,17 +10,21 @@ First, make sure you have some build tools. Copy/paste each line to a terminal:
     sudo apt-get install build-essential libxml2-dev libssl-dev
     sudo apt-get install libcurl4-openssl-dev libssh2-1-dev
     sudo apt-get install libgit2-dev libicu-dev
+    sudo apt-get install texlive-xetex texlive-humanities
 
 On Ubuntu 15.04 you can now get R and Pandoc like so:
 
     sudo apt-get install r-base r-base-dev pandoc pandoc-citeproc
 
-For older Ubuntu, read on. After you install R and Pandoc, skip down to
-the section "Getting dependencies inside of R".
+For Ubuntu 14.04, you will have to install R and pandoc manually, per
+instructions below. 
+
+After you install R and Pandoc, skip down to the section "Getting 
+dependencies inside of R".
 
 === Ubuntu 14.04 ===
 
-On Ubuntu 14.04 both Pandoc and R are too old to work (devtools bitrot). 
+On Ubuntu 14.04 both Pandoc and R are too old to work (R devtools bitrot). 
 You need to purge the existing R and Pandoc packages and install them 
 yourself. First, purge old packages.
 
@@ -42,7 +47,8 @@ every time you log in from here forward.
 
     gedit $HOME/.bashrc
 
-Save and quit.
+Save and quit. Note that if you ever upgrade ubuntu 14 to ubuntu 15, you
+will need to remove .cabal and this line from .bashrc.
 
 ==== Ubuntu 14 R ====
 
@@ -78,9 +84,9 @@ itself. Start R as root
 
     sudo R
 
-Now copy/paste these R commands to install dependencies. It may ask you 
-to choose a mirror site for downloading. Choose one close to you. On success
-it should say "DONE".
+Now copy/paste each of these R commands to the R terminal. This will 
+install dependencies. It may ask you to choose a mirror site for 
+downloading. Choose one close to you. On success it should say "DONE".
 
     install.packages("devtools")
     install.packages(c("R6", "yaml", "digest", "crayon", "optparse"))
@@ -108,7 +114,9 @@ Now start R and build the project using 'remake' (you do not need to be root)
 
     > remake::make()
 
-
+After a few minutes it should create a .pdf file under the MS directory. 
+This should be openable with any pdf viewer or by clicking in the Ubuntu
+file browser.
 
 === See Also ===
 
