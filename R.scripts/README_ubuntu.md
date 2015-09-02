@@ -10,26 +10,38 @@ First, make sure you have some build tools. Copy/paste each line to a terminal:
     sudo apt-get update
     sudo apt-get install build-essential libxml2-dev libssl-dev
     sudo apt-get install libcurl4-openssl-dev libssh2-1-dev
-    sudo apt-get install libgit2-dev libicu-dev
-    sudo apt-get install texlive-xetex texlive-humanities
+    sudo apt-get install libgit2-dev
+    sudo apt-get install live-xetex textexlive-latex-extra
+    sudo apt-get install texlive-humanities texlive-fonts-recommended
 
 On Ubuntu 15.04 you can now install R and Pandoc like so:
 
     sudo apt-get install r-base r-base-dev pandoc pandoc-citeproc
 
 For Ubuntu 14.04, you will have to install R and pandoc manually, per
-instructions below. 
+instructions below.
 
 After you install R and Pandoc, skip down to the section "Getting 
 dependencies inside of R".
 
 ### Ubuntu 14.04 
 
-On Ubuntu 14.04 both Pandoc and R are too old to work (R devtools bitrot). 
-You need to purge the existing R and Pandoc packages and install them 
-yourself. First, purge old packages.
+On Ubuntu 14.04 both Pandoc and R are too old to work with this project. 
+The .pdf document itself requires R features that are most easily 
+available from a newer version of R. The prime example is 'devtools'. 
+The mid-2015 version of devtools won't install on the old version of R 
+that came with Ubuntu 14.04. A similar problem occurs when using an 
+older version of pandoc. You will get error messages and the build will 
+fail.
+
+To build successfully on 14.04, make sure you are confident in system 
+administration tasks. If not, it is probably easier to just use Ubuntu 
+15.04. To proceed with 14.04 installation, first purge the existing R 
+and Pandoc packages.
 
     sudo apt-get purge r-base r-base-dev pandoc
+
+Then follow the steps below to install pandoc and R yourself. 
 
 #### Ubuntu 14.04 Pandoc 
 
@@ -48,11 +60,22 @@ permanent every time you login from here forward.
 
     gedit $HOME/.bashrc
 
-Save and quit. Note that if you ever upgrade ubuntu 14 to ubuntu 15, you 
-will probably want to remove this line from .bashrc and remove the 
-$HOME/.cabal directory.
+Save and quit. cat $HOME/.bashrc to verify the last line has the export PATH
+command. Logout and log back in, then type
 
-#### Ubuntu 14 R 
+    echo $PATH
+
+to verify that $HOME/.cabal/bin is the first entry. Note that if you 
+ever upgrade ubuntu 14 to ubuntu 15, and want to install the official 
+pandoc packages for ubuntu 15, you probably want to remove this line 
+from .bashrc and remove the $HOME/.cabal directory.
+
+#### Ubuntu 14.04 R language
+
+First update your Gnu Privacy Guard (GPG) keys
+
+    gpg --keyserver pgpkeys.mit.edu --recv-key 51716619E084DAB9
+    gpg -a --export 51716619E084DAB9 | sudo apt-key add -
 
 Next, get R from the rstudio.com repository. Edit your 
 /etc/apt/sources.list file as root
@@ -63,28 +86,25 @@ Add the following line to the end of the sources.list file (no leading spaces):
 
     deb http://cran.rstudio.com/bin/linux/ubuntu trusty/
 
-Save and exit. Now update your Gnu Privacy Guard (GPG) keys
-
-    gpg --keyserver pgpkeys.mit.edu --recv-key 51716619E084DAB9
-    gpg -a --export 51716619E084DAB9 | sudo apt-key add -
-
-Update your apt package system with the new rstudio.com entries like so:
+Save and exit. Update your apt package system to reflect the above changes.
 
     sudo apt-get update
 
-Now install R from rstudio.com:
+Now install R:
 
     sudo apt-get install r-base r-base-dev
 
-This should install R from rstudio.com and dependency packages from
-the standard locations. 
+This should install an up-to-date version of R from rstudio.com and 
+dependency packages from the standard locations.
+
+You should now ready to start R.
 
 ## Getting dependenices inside of R 
 
 Several R tools are required. They can be installed from within R 
-itself. Start R as root
+itself. Start R
 
-    sudo R
+    R
 
 Now copy/paste each of these R commands to the R terminal. It may ask you to 
 choose a mirror site for downloading. Choose one close to you. Each command
@@ -99,9 +119,9 @@ should say "DONE".
     devtools::install_github("richfitz/storr")
     devtools::install_github("richfitz/remake")
 
-You should now be ready to build the project.
+You should now be ready to build the project document
 
-## Building the project 
+## Building the project document
 
 First, fetch the source code (if you don't already have it)
 
@@ -111,7 +131,7 @@ Switch to the base directory
 
     cd Predator_Phylogenetic_Diversity
 
-Now start R and build the project using 'remake' (you do not need to be root)
+Now start R and build the project using 'remake'
     
     R
 
