@@ -30,7 +30,7 @@ Now install pandoc from the haskell Cabal repository.
     sudo apt-get install haskell-platform
     cabal update
     cabal install pandoc
-    cabal install pandoc pandoc-citeproc
+    cabal install pandoc-citeproc
 
 This will take a long time as the system downloads and compiles the files. 
 It will build, by default, under $HOME/.cabal/bin so add this directory
@@ -41,7 +41,7 @@ to your PATH
 Copy/paste the above command to the end of your $HOME/.bashrc to make it 
 permanent every time you login from here forward.
 
-    gedit $HOME/.bashrc
+    gedit $HOME/.bashrc   # (gedit, or your editor of choice)
 
 Save and quit. cat $HOME/.bashrc to verify the last line has the export PATH
 command. Logout and log back in, then type
@@ -106,11 +106,11 @@ itself. Start R
 
     R
 
-Now copy/paste each of these R commands to the R terminal. Pick 'yes' 
-for local install. It may ask you to choose a mirror site for 
+Now copy/paste each of the following R commands to the R terminal. Pick 
+'yes' for local install. It may ask you to choose a mirror site for 
 downloading. Choose one close to you. Each command may take several 
-minutes as it downloads and compiles files. On each success it should say 
-"DONE".
+minutes as it downloads and compiles files. On each success it should 
+say "DONE".
 
     install.packages("devtools")
     install.packages(c("R6", "yaml", "digest", "crayon", "optparse"))
